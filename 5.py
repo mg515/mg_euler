@@ -5,20 +5,27 @@ Created on Sat Jun 20 18:59:23 2015
 @author: miha
 """
 
-a = 2520
-pogoj = True
+# EULER PROBLEM #5
+
+import timeit
 
 
-while pogoj == True:
-    pogoj = False
+start = timeit.timeit() # start time
+
+num = 2520
+condition = True
+while condition == True:
+    condition = False
     k = 0
     for i in range(10,21)[::-1]:
-        if a%i != 0:
-            pogoj = True
+        if num%i != 0:
+            condition = True
             break
     if k == 10:
-            pogoj = False
+            condition = False
             
-    a += 2520            
+    num += 2520            
             
-print a
+print "Solution: " + str(num)
+stop = timeit.timeit() # end time
+print("Time consumed: " + str(stop - start))

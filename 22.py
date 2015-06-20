@@ -5,34 +5,38 @@ Created on Mon May 25 22:35:31 2015
 @author: miha
 """
 
+# EULER PROBLEM #22
 
 import pandas as pd
-
+import timeit
 import string
-abeceda = string.ascii_uppercase
 
+start = timeit.default_timer()
 
-
+alphabet = string.ascii_uppercase
 abdict = dict()
 i = 1
-for crka in abeceda:
-    abdict[crka] = i
+for letter in alphabet:
+    abdict[letter] = i
     i += 1
 
-pot = '/media/miha/6EB86D86B86D4E21/Documents and Settings/miha/Documents/euler/22t.txt'
-df=pd.read_csv(pot, sep=',', header=None)
+path = '/media/diskC/Documents and Settings/miha/Documents/euler/22t.txt'
+df=pd.read_csv(path, sep=',', header=None)
 
-imena = list(df.values)[0]
-imena[3302] = 'NA'
-imena = sorted(imena)
+names = list(df.values)[0]
+names[3302] = 'NA'
+names = sorted(names)
 
 i = 1
-rezultat = 0
-for ime in imena:
-    vsota = 0
-    for crka in ime:
-        vsota = vsota + abdict[crka]
-    rezultat = rezultat + i*vsota
+solution = 0
+for name in names:
+    sums = 0
+    for letter in name:
+        sums = sums + abdict[letter]
+    solution = solution + i*sums
     i+=1
-        
-                
+    
+stop = timeit.default_timer()
+
+print "Solution: " + str(solution)          
+print("Time consumed: " + str(stop - start))

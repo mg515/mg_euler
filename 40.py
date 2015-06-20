@@ -5,19 +5,28 @@ Created on Thu May 28 22:29:24 2015
 @author: miha
 """
 
-stevila = ""
+# EULER PROBLEM #40
+
+import timeit
+
+start = timeit.default_timer()
+
+numbers = ""
 i = 1
 j = 0
 while j < 1000010:
     j+=len(str(i))
-    stevila = stevila + str(i-1)
+    numbers = numbers + str(i-1)
     i+=1
     
-rez = 1
+sol = 1
 i = 1
 while i < 100000:
     i *= 10
-    rez = rez * int(stevila[i])
-    print(int(stevila[i]))
-    print(rez)
-    print(i)
+    sol = sol * int(numbers[i])
+    
+
+stop = timeit.default_timer()
+
+print "Solution: " + str(sol)          
+print("Time consumed: " + str(stop - start))

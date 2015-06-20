@@ -5,22 +5,21 @@ Created on Tue Jun 16 21:10:53 2015
 @author: miha
 """
 
+# EULER PROBLEM #6
 
-
-def razlika6(n):
-    stevila = [i for i in range(n+1)]
-    kvadrat = sum(stevila)**2    
-    vsota = [0 for i in range(n+1)]
+def diff_EP6(n):
+    numbers = [i for i in range(n+1)]
+    squares = sum(numbers)**2    
+    part_sums = [0 for i in range(n+1)]
     for i in range(1,n+1):
-        vsota[i] = vsota[i-1] + i**2
-    return kvadrat-vsota[n]
+        part_sums[i] = part_sums[i-1] + i**2
+    return squares-part_sums[n]
     
     
 
 import timeit
 
 start = timeit.timeit()
-print razlika6(100)
-end = timeit.timeit()
-print end - start     
-     
+print "Solution: " + str(diff_EP6(100000))
+stop = timeit.timeit()
+print("Time consumed: " + str(stop - start))
