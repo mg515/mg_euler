@@ -23,14 +23,14 @@ def last10dig_p48(n):
         for j in range(1,i):            
             temp *= i
             if temp >= sys.maxint:
-                temp %= mod        
+                temp %= mod     
                 
         vs += temp
         vs %= mod
     return vs
 
 
-sol = last10dig_p48(10)
+sol = last10dig_p48(1000)
 
 
 stop = timeit.default_timer()
