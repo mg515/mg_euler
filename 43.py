@@ -21,11 +21,12 @@ def find_pandigital():
     prastevila = [2,3,5,7,11,13,17]
     
     for kombi in it.permutations(range(0,10)):
-        k = 0
+        cond = True
         for i in range(len(prastevila)):
-            if make_int(kombi[(i+1):(i+4)]) % prastevila[i] == 0:
-                k += 1
-        if k == 7:
+            if make_int(kombi[(i+1):(i+4)]) % prastevila[i] != 0:
+                cond = False
+                break
+        if cond:
             pandigit_sum += make_int(kombi)
     return pandigit_sum
                 
