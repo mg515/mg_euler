@@ -18,16 +18,17 @@ def make_int(nums):
 def find_pandigital():
     
     pandigit_sum = 0
-    prastevila = [2,3,5,7,11,13,17]
+    primes = [2,3,5,7,11,13,17]
     
-    for kombi in it.permutations(range(0,10)):
+    for perm in it.permutations(range(0,10)):
         cond = True
-        for i in range(len(prastevila)):
-            if make_int(kombi[(i+1):(i+4)]) % prastevila[i] != 0:
+        # start from the last condition, takes out most of the numbers:
+        for i in range(len(primes))[::-1]:
+            if make_int(perm[(i+1):(i+4)]) % primes[i] != 0:
                 cond = False
                 break
         if cond:
-            pandigit_sum += make_int(kombi)
+            pandigit_sum += make_int(perm)
     return pandigit_sum
                 
 
