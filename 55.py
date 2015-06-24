@@ -5,7 +5,7 @@ Created on Wed Jun 24 08:40:18 2015
 @author: miha
 """
 
-# EULER PROBLEM #43
+# EULER PROBLEM #55
 
 import timeit
 
